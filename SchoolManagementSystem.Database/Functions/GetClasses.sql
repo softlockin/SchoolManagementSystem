@@ -1,0 +1,5 @@
+﻿CREATE FUNCTION [dbo].[GetClasses]
+()
+RETURNS TABLE AS
+RETURN
+	SELECT * FROM dbo.Classes

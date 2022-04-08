@@ -1,0 +1,5 @@
+﻿CREATE FUNCTION [dbo].[GetUsers]
+()
+RETURNS TABLE AS
+RETURN
+	SELECT * FROM dbo.Users

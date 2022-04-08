@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Grades]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Result] NCHAR(10) NOT NULL, 
+    [StudentId] INT NOT NULL, 
+    [ClassId] INT NOT NULL,
+    CONSTRAINT [FK_Grades_Student] FOREIGN KEY ([ClassId]) REFERENCES [Classes]([Id]) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT [FK_Grades_Class] FOREIGN KEY ([ClassId]) REFERENCES [Classes]([Id]) ON DELETE NO ACTION ON UPDATE NO ACTION,
+
+)
