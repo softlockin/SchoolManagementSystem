@@ -64,6 +64,20 @@ namespace SchoolManagementSystem
 			Engine.Setup();
 		}
 
+		public static void RemoveUser(User user)
+		{
+			using (SqlConnection cnn = new SqlConnection(connectionString))
+			{
+				cnn.Open();
+
+				SqlCommand cmd = new SqlCommand("DELETE FROM dbo.[Users] WHERE [Id] = @id;", cnn);
+				cmd.Parameters.AddWithValue("@id", user.Id);
+				cmd.ExecuteNonQuery();
+			}
+
+			Engine.Setup();
+		}
+
 		public static void AddClass(Class @class)
 		{
 			using (SqlConnection cnn = new SqlConnection(connectionString))

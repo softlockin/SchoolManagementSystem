@@ -50,7 +50,7 @@ namespace SchoolManagementSystem.UserControls.Inventory
 		{
 			if(Classes.SelectedIndex != -1)
 			{
-				Engine.Classes.Remove(Classes.SelectedItem as Class);
+				Engine.RemoveClass(Classes.SelectedItem as Class);
 				Classes.Items.Clear();
 				Classes.Items.AddRange(Engine.Classes.ToArray());
 				Notification.Show("Class removed", Notification.Type.Success);

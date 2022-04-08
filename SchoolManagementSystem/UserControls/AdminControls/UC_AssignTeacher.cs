@@ -37,5 +37,17 @@ namespace SchoolManagementSystem.UserControls.Shipment
 				Notification.Show("Please fill in complete details", Notification.Type.Error);
 			}
 		}
+
+		private void DeleteButton_Click(object sender, EventArgs e)
+		{
+			if (Teachers.SelectedIndex != -1)
+			{
+				Engine.RemoveUser(Teachers.SelectedItem as Student);
+				Teachers.Items.Clear();
+				Teachers.Items.AddRange(Engine.Teachers.ToArray());
+				Notification.Show("Deleted", Notification.Type.Info);
+				Teachers.SelectedItem = -1;
+			}
+		}
 	}
 }

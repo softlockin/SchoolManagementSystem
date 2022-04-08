@@ -37,14 +37,14 @@ namespace SchoolManagementSystem.UserControls.Inventory
 			this.AddClass = new FontAwesome.Sharp.IconButton();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.Canva = new System.Windows.Forms.Panel();
+			this.Classes = new System.Windows.Forms.ComboBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.RemoveButton = new FontAwesome.Sharp.IconButton();
+			this.label3 = new System.Windows.Forms.Label();
 			this.Add = new FontAwesome.Sharp.IconButton();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.ClassName = new System.Windows.Forms.TextBox();
-			this.RemoveButton = new FontAwesome.Sharp.IconButton();
-			this.label3 = new System.Windows.Forms.Label();
-			this.Classes = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
 			this.Navbar.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Back)).BeginInit();
 			this.MenuBar.SuspendLayout();
@@ -115,7 +115,7 @@ namespace SchoolManagementSystem.UserControls.Inventory
 			this.AddClass.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
 			this.AddClass.Size = new System.Drawing.Size(157, 37);
 			this.AddClass.TabIndex = 19;
-			this.AddClass.Text = "Add Class";
+			this.AddClass.Text = "Add/Remove";
 			this.AddClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.AddClass.UseVisualStyleBackColor = true;
 			this.AddClass.Click += new System.EventHandler(this.AddClass_Click);
@@ -135,6 +135,61 @@ namespace SchoolManagementSystem.UserControls.Inventory
 			this.Canva.Name = "Canva";
 			this.Canva.Size = new System.Drawing.Size(801, 498);
 			this.Canva.TabIndex = 3;
+			// 
+			// Classes
+			// 
+			this.Classes.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.Classes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+			this.Classes.FormattingEnabled = true;
+			this.Classes.Location = new System.Drawing.Point(251, 314);
+			this.Classes.Name = "Classes";
+			this.Classes.Size = new System.Drawing.Size(286, 23);
+			this.Classes.TabIndex = 45;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.label2.ForeColor = System.Drawing.Color.Black;
+			this.label2.Location = new System.Drawing.Point(248, 296);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(71, 15);
+			this.label2.TabIndex = 44;
+			this.label2.Text = "Select Class:";
+			// 
+			// RemoveButton
+			// 
+			this.RemoveButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.RemoveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+			this.RemoveButton.FlatAppearance.BorderSize = 0;
+			this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.RemoveButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RemoveButton.ForeColor = System.Drawing.Color.White;
+			this.RemoveButton.IconChar = FontAwesome.Sharp.IconChar.None;
+			this.RemoveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.RemoveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.RemoveButton.IconSize = 30;
+			this.RemoveButton.Location = new System.Drawing.Point(251, 354);
+			this.RemoveButton.Name = "RemoveButton";
+			this.RemoveButton.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+			this.RemoveButton.Size = new System.Drawing.Size(286, 31);
+			this.RemoveButton.TabIndex = 40;
+			this.RemoveButton.Text = "Remove";
+			this.RemoveButton.UseVisualStyleBackColor = false;
+			this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
+			// 
+			// label3
+			// 
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+			this.label3.ForeColor = System.Drawing.Color.Black;
+			this.label3.Location = new System.Drawing.Point(338, 246);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(105, 20);
+			this.label3.TabIndex = 38;
+			this.label3.Text = "Remove Class";
 			// 
 			// Add
 			// 
@@ -189,61 +244,6 @@ namespace SchoolManagementSystem.UserControls.Inventory
 			this.ClassName.Name = "ClassName";
 			this.ClassName.Size = new System.Drawing.Size(286, 23);
 			this.ClassName.TabIndex = 29;
-			// 
-			// RemoveButton
-			// 
-			this.RemoveButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.RemoveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-			this.RemoveButton.FlatAppearance.BorderSize = 0;
-			this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.RemoveButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RemoveButton.ForeColor = System.Drawing.Color.White;
-			this.RemoveButton.IconChar = FontAwesome.Sharp.IconChar.None;
-			this.RemoveButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.RemoveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-			this.RemoveButton.IconSize = 30;
-			this.RemoveButton.Location = new System.Drawing.Point(251, 354);
-			this.RemoveButton.Name = "RemoveButton";
-			this.RemoveButton.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-			this.RemoveButton.Size = new System.Drawing.Size(286, 31);
-			this.RemoveButton.TabIndex = 40;
-			this.RemoveButton.Text = "Remove";
-			this.RemoveButton.UseVisualStyleBackColor = false;
-			this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
-			// 
-			// label3
-			// 
-			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-			this.label3.ForeColor = System.Drawing.Color.Black;
-			this.label3.Location = new System.Drawing.Point(338, 246);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(105, 20);
-			this.label3.TabIndex = 38;
-			this.label3.Text = "Remove Class";
-			// 
-			// Classes
-			// 
-			this.Classes.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.Classes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-			this.Classes.FormattingEnabled = true;
-			this.Classes.Location = new System.Drawing.Point(251, 314);
-			this.Classes.Name = "Classes";
-			this.Classes.Size = new System.Drawing.Size(286, 23);
-			this.Classes.TabIndex = 45;
-			// 
-			// label2
-			// 
-			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.label2.ForeColor = System.Drawing.Color.Black;
-			this.label2.Location = new System.Drawing.Point(248, 296);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(71, 15);
-			this.label2.TabIndex = 44;
-			this.label2.Text = "Select Class:";
 			// 
 			// UC_ManageClasses
 			// 

@@ -38,6 +38,7 @@ namespace SchoolManagementSystem.UserControls.CRM
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.label7 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
+			this.DeleteButton = new FontAwesome.Sharp.IconButton();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -79,7 +80,7 @@ namespace SchoolManagementSystem.UserControls.CRM
 			this.Assign.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
 			this.Assign.Size = new System.Drawing.Size(319, 31);
 			this.Assign.TabIndex = 44;
-			this.Assign.Text = "Assign";
+			this.Assign.Text = "Assign to Class";
 			this.Assign.UseVisualStyleBackColor = false;
 			this.Assign.Click += new System.EventHandler(this.Assign_Click);
 			// 
@@ -129,11 +130,33 @@ namespace SchoolManagementSystem.UserControls.CRM
 			this.label5.TabIndex = 41;
 			this.label5.Text = "Please fill out the following information to assign student to class";
 			// 
+			// DeleteButton
+			// 
+			this.DeleteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+			this.DeleteButton.FlatAppearance.BorderSize = 0;
+			this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.DeleteButton.ForeColor = System.Drawing.Color.White;
+			this.DeleteButton.IconChar = FontAwesome.Sharp.IconChar.None;
+			this.DeleteButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.DeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.DeleteButton.IconSize = 30;
+			this.DeleteButton.Location = new System.Drawing.Point(241, 239);
+			this.DeleteButton.Name = "DeleteButton";
+			this.DeleteButton.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+			this.DeleteButton.Size = new System.Drawing.Size(319, 31);
+			this.DeleteButton.TabIndex = 47;
+			this.DeleteButton.Text = "Delete selected Student";
+			this.DeleteButton.UseVisualStyleBackColor = false;
+			this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+			// 
 			// UC_AssignStudent
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.DeleteButton);
 			this.Controls.Add(this.Students);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.Assign);
@@ -160,5 +183,6 @@ namespace SchoolManagementSystem.UserControls.CRM
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label5;
+		private FontAwesome.Sharp.IconButton DeleteButton;
 	}
 }

@@ -30,5 +30,17 @@ namespace SchoolManagementSystem.UserControls.CRM
 			Students.Items.AddRange(Engine.Students.ToArray());
 			Classes.Items.AddRange(Engine.Classes.ToArray());
 		}
+
+		private void DeleteButton_Click(object sender, EventArgs e)
+		{
+			if(Students.SelectedIndex != -1)
+			{
+				Engine.RemoveUser(Students.SelectedItem as Student);
+				Students.Items.Clear();
+				Students.Items.AddRange(Engine.Students.ToArray());
+				Notification.Show("Deleted", Notification.Type.Info);
+				Students.SelectedItem = -1;
+			}
+		}
 	}
 }
