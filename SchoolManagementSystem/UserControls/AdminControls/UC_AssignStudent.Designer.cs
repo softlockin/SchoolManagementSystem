@@ -39,6 +39,7 @@ namespace SchoolManagementSystem.UserControls.CRM
 			this.label7 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.DeleteButton = new FontAwesome.Sharp.IconButton();
+			this.RemoveStudentFromClass = new FontAwesome.Sharp.IconButton();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -142,7 +143,7 @@ namespace SchoolManagementSystem.UserControls.CRM
 			this.DeleteButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.DeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.DeleteButton.IconSize = 30;
-			this.DeleteButton.Location = new System.Drawing.Point(241, 239);
+			this.DeleteButton.Location = new System.Drawing.Point(241, 278);
 			this.DeleteButton.Name = "DeleteButton";
 			this.DeleteButton.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
 			this.DeleteButton.Size = new System.Drawing.Size(319, 31);
@@ -151,11 +152,33 @@ namespace SchoolManagementSystem.UserControls.CRM
 			this.DeleteButton.UseVisualStyleBackColor = false;
 			this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
 			// 
+			// RemoveStudentFromClass
+			// 
+			this.RemoveStudentFromClass.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.RemoveStudentFromClass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+			this.RemoveStudentFromClass.FlatAppearance.BorderSize = 0;
+			this.RemoveStudentFromClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.RemoveStudentFromClass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RemoveStudentFromClass.ForeColor = System.Drawing.Color.White;
+			this.RemoveStudentFromClass.IconChar = FontAwesome.Sharp.IconChar.None;
+			this.RemoveStudentFromClass.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.RemoveStudentFromClass.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.RemoveStudentFromClass.IconSize = 30;
+			this.RemoveStudentFromClass.Location = new System.Drawing.Point(241, 239);
+			this.RemoveStudentFromClass.Name = "RemoveStudentFromClass";
+			this.RemoveStudentFromClass.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+			this.RemoveStudentFromClass.Size = new System.Drawing.Size(319, 31);
+			this.RemoveStudentFromClass.TabIndex = 48;
+			this.RemoveStudentFromClass.Text = "Remove selected student from Class";
+			this.RemoveStudentFromClass.UseVisualStyleBackColor = false;
+			this.RemoveStudentFromClass.Click += new System.EventHandler(this.RemoveStudentFromClass_Click);
+			// 
 			// UC_AssignStudent
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.RemoveStudentFromClass);
 			this.Controls.Add(this.DeleteButton);
 			this.Controls.Add(this.Students);
 			this.Controls.Add(this.label2);
@@ -184,5 +207,6 @@ namespace SchoolManagementSystem.UserControls.CRM
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label5;
 		private FontAwesome.Sharp.IconButton DeleteButton;
+		private FontAwesome.Sharp.IconButton RemoveStudentFromClass;
 	}
 }

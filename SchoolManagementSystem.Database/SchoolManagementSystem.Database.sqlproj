@@ -80,6 +80,7 @@
     <Build Include="Functions\GetGradesByClass.sql" />
     <Build Include="Functions\GetAttendance.sql" />
     <Build Include="StoredProcedures\AssignFee.sql" />
+    <Build Include="Functions\GetStudentsByParentId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SchoolManagementSystem.Database.publish.xml" />

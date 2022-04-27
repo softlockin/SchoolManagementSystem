@@ -1,17 +1,22 @@
 ﻿using SchoolManagementSystem.Forms.Login;
-using SchoolManagementSystem.UserControls.AdminControls;
-using SchoolManagementSystem.UserControls.CRM;
 using SchoolManagementSystem.UserControls.Inventory;
-using SchoolManagementSystem.UserControls.ShipmentManager;
+using SchoolManagementSystem.UserControls.ParentControls;
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SchoolManagementSystem.Forms
 {
-	public partial class Dashboard : Form
+	public partial class ParentDashboard : Form
 	{
-		public Dashboard()
+		public ParentDashboard()
 		{
 			InitializeComponent();
 			this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
@@ -51,11 +56,11 @@ namespace SchoolManagementSystem.Forms
 			this.ShipmentManager.Controls.Add(this.label2);
 			this.ShipmentManager.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.ShipmentManager.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-			this.ShipmentManager.Location = new System.Drawing.Point(246, 211);
+			this.ShipmentManager.Location = new System.Drawing.Point(321, 210);
 			this.ShipmentManager.Name = "ShipmentManager";
 			this.ShipmentManager.Size = new System.Drawing.Size(148, 120);
 			this.ShipmentManager.TabIndex = 4;
-			this.ShipmentManager.Click += new System.EventHandler(this.Teachers_Click);
+			this.ShipmentManager.Click += new System.EventHandler(this.Attendance_Click);
 			// 
 			// pictureBox1
 			// 
@@ -68,7 +73,7 @@ namespace SchoolManagementSystem.Forms
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.pictureBox1.TabIndex = 6;
 			this.pictureBox1.TabStop = false;
-			this.pictureBox1.Click += new System.EventHandler(this.Teachers_Click);
+			this.pictureBox1.Click += new System.EventHandler(this.Attendance_Click);
 			// 
 			// label2
 			// 
@@ -77,12 +82,12 @@ namespace SchoolManagementSystem.Forms
 			this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(45, 89);
+			this.label2.Location = new System.Drawing.Point(34, 89);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(61, 19);
+			this.label2.Size = new System.Drawing.Size(79, 19);
 			this.label2.TabIndex = 5;
-			this.label2.Text = "Teachers";
-			this.label2.Click += new System.EventHandler(this.Teachers_Click);
+			this.label2.Text = "Attendance";
+			this.label2.Click += new System.EventHandler(this.Attendance_Click);
 			// 
 			// elOutward
 			// 
@@ -96,11 +101,11 @@ namespace SchoolManagementSystem.Forms
 			this.CRM.Controls.Add(this.label3);
 			this.CRM.Controls.Add(this.pictureBox2);
 			this.CRM.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.CRM.Location = new System.Drawing.Point(418, 211);
+			this.CRM.Location = new System.Drawing.Point(493, 210);
 			this.CRM.Name = "CRM";
 			this.CRM.Size = new System.Drawing.Size(148, 120);
 			this.CRM.TabIndex = 5;
-			this.CRM.Click += new System.EventHandler(this.Students_Click);
+			this.CRM.Click += new System.EventHandler(this.Grades_Click);
 			// 
 			// label3
 			// 
@@ -109,12 +114,12 @@ namespace SchoolManagementSystem.Forms
 			this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(41, 89);
+			this.label3.Location = new System.Drawing.Point(49, 89);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(63, 19);
+			this.label3.Size = new System.Drawing.Size(52, 19);
 			this.label3.TabIndex = 6;
-			this.label3.Text = "Students";
-			this.label3.Click += new System.EventHandler(this.Students_Click);
+			this.label3.Text = "Grades";
+			this.label3.Click += new System.EventHandler(this.Grades_Click);
 			// 
 			// pictureBox2
 			// 
@@ -127,12 +132,11 @@ namespace SchoolManagementSystem.Forms
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.pictureBox2.TabIndex = 5;
 			this.pictureBox2.TabStop = false;
-			this.pictureBox2.Click += new System.EventHandler(this.Students_Click);
+			this.pictureBox2.Click += new System.EventHandler(this.Grades_Click);
 			// 
 			// Canva
 			// 
 			this.Canva.BackColor = System.Drawing.Color.White;
-			this.Canva.Controls.Add(this.InventoryManager);
 			this.Canva.Controls.Add(this.label);
 			this.Canva.Controls.Add(this.CRM);
 			this.Canva.Controls.Add(this.ShipmentManager);
@@ -141,46 +145,6 @@ namespace SchoolManagementSystem.Forms
 			this.Canva.Name = "Canva";
 			this.Canva.Size = new System.Drawing.Size(958, 528);
 			this.Canva.TabIndex = 5;
-			// 
-			// InventoryManager
-			// 
-			this.InventoryManager.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.InventoryManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
-			this.InventoryManager.Controls.Add(this.label1);
-			this.InventoryManager.Controls.Add(this.pictureBox4);
-			this.InventoryManager.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.InventoryManager.Location = new System.Drawing.Point(586, 211);
-			this.InventoryManager.Name = "InventoryManager";
-			this.InventoryManager.Size = new System.Drawing.Size(148, 120);
-			this.InventoryManager.TabIndex = 7;
-			this.InventoryManager.Click += new System.EventHandler(this.Classes_Click);
-			// 
-			// label1
-			// 
-			this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label1.AutoSize = true;
-			this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(46, 89);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(53, 19);
-			this.label1.TabIndex = 6;
-			this.label1.Text = "Classes";
-			this.label1.Click += new System.EventHandler(this.Classes_Click);
-			// 
-			// pictureBox4
-			// 
-			this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
-			this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox4.Image = global::SchoolManagementSystem.Properties.Resources.icons8_toolbox_52px;
-			this.pictureBox4.Location = new System.Drawing.Point(35, 20);
-			this.pictureBox4.Name = "pictureBox4";
-			this.pictureBox4.Size = new System.Drawing.Size(74, 64);
-			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.pictureBox4.TabIndex = 5;
-			this.pictureBox4.TabStop = false;
-			this.pictureBox4.Click += new System.EventHandler(this.Classes_Click);
 			// 
 			// label
 			// 
@@ -197,7 +161,7 @@ namespace SchoolManagementSystem.Forms
 			// bunifuElipse2
 			// 
 			this.bunifuElipse2.ElipseRadius = 9;
-			this.bunifuElipse2.TargetControl = this.InventoryManager;
+			this.bunifuElipse2.TargetControl = this;
 		}
 
 		private void ActivateControl(UserControl c)
@@ -207,29 +171,21 @@ namespace SchoolManagementSystem.Forms
 			Canva.Controls.Add(c);
 		}
 
-		public void Teachers_Click(object sender, EventArgs e)
+		public void Attendance_Click(object sender, EventArgs e)
 		{
-			ActivateControl(new UC_ManageTeachers());
+			ActivateControl(new UC_ViewAttendanceToParent());
 		}
 
-		public void Parents_Click(object sender, EventArgs e)
+		public void Grades_Click(object sender, EventArgs e)
 		{
-			ActivateControl(new UC_ManageParents());
-		}
-
-		public void Students_Click(object sender, EventArgs e)
-		{
-			ActivateControl(new UC_ManageStudents());
-		}
-
-		public void Classes_Click(object sender, EventArgs e)
-		{
-			ActivateControl(new UC_ManageClasses());
+			ActivateControl(new UC_ViewGradesToParent());
 		}
 
 		private void Dashboard_Load(object sender, EventArgs e)
 		{
-
+			Models.Parent parent = (Models.Parent)Engine.CurrentUser;
+			decimal totalFee = parent.Students.Sum(s => s.Fee);
+			txtFee.Text = totalFee.ToString();
 		}
 
 		private void Logout_Click(object sender, EventArgs e)

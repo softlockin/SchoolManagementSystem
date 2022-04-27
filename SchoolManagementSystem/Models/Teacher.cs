@@ -5,8 +5,6 @@ namespace SchoolManagementSystem
 {
 	public class Teacher : User
 	{
-
-
 		#region Constructor
 
 		public Teacher(string name, string username, string password) : base(name, username, password)

@@ -1,7 +1,6 @@
-﻿
-namespace SchoolManagementSystem.UserControls.Inventory
+﻿namespace SchoolManagementSystem.UserControls.ParentControls
 {
-	partial class UC_ViewGrades
+	partial class UC_ViewGradesToParent
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -30,35 +29,36 @@ namespace SchoolManagementSystem.UserControls.Inventory
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dg = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+			this.label7 = new System.Windows.Forms.Label();
+			this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.Navbar = new System.Windows.Forms.Panel();
+			this.NavTitle = new System.Windows.Forms.Label();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.classDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.resultDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.studentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.gradeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.label7 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.Back = new System.Windows.Forms.PictureBox();
-			this.Navbar = new System.Windows.Forms.Panel();
-			this.NavTitle = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.Students = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
+			this.Navbar.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gradeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Back)).BeginInit();
-			this.Navbar.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// dg
 			// 
 			this.dg.AllowUserToAddRows = false;
 			this.dg.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.dg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.dg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
 			this.dg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -69,14 +69,14 @@ namespace SchoolManagementSystem.UserControls.Inventory
 			this.dg.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.Maroon;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.Maroon;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -84,31 +84,70 @@ namespace SchoolManagementSystem.UserControls.Inventory
             this.resultDataGridViewTextBoxColumn,
             this.studentDataGridViewTextBoxColumn});
 			this.dg.DataSource = this.gradeBindingSource;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dg.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dg.DefaultCellStyle = dataGridViewCellStyle7;
 			this.dg.DoubleBuffered = true;
 			this.dg.EnableHeadersVisualStyles = false;
 			this.dg.HeaderBgColor = System.Drawing.Color.Maroon;
 			this.dg.HeaderForeColor = System.Drawing.Color.White;
-			this.dg.Location = new System.Drawing.Point(59, 128);
+			this.dg.Location = new System.Drawing.Point(58, 131);
 			this.dg.MultiSelect = false;
 			this.dg.Name = "dg";
 			this.dg.ReadOnly = true;
 			this.dg.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.dg.RowHeadersVisible = false;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Transparent;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-			this.dg.RowsDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Transparent;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+			this.dg.RowsDefaultCellStyle = dataGridViewCellStyle8;
 			this.dg.Size = new System.Drawing.Size(675, 355);
-			this.dg.TabIndex = 30;
+			this.dg.TabIndex = 40;
 			this.dg.TabStop = false;
 			this.dg.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dg_CellFormatting);
+			// 
+			// label7
+			// 
+			this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+			this.label7.ForeColor = System.Drawing.Color.Black;
+			this.label7.Location = new System.Drawing.Point(363, 46);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(58, 20);
+			this.label7.TabIndex = 41;
+			this.label7.Text = "Grades";
+			// 
+			// bunifuElipse1
+			// 
+			this.bunifuElipse1.ElipseRadius = 7;
+			this.bunifuElipse1.TargetControl = this.dg;
+			// 
+			// Navbar
+			// 
+			this.Navbar.BackColor = System.Drawing.SystemColors.AppWorkspace;
+			this.Navbar.Controls.Add(this.Back);
+			this.Navbar.Controls.Add(this.NavTitle);
+			this.Navbar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.Navbar.Location = new System.Drawing.Point(0, 0);
+			this.Navbar.Name = "Navbar";
+			this.Navbar.Size = new System.Drawing.Size(801, 30);
+			this.Navbar.TabIndex = 43;
+			// 
+			// NavTitle
+			// 
+			this.NavTitle.AutoSize = true;
+			this.NavTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.NavTitle.ForeColor = System.Drawing.Color.Black;
+			this.NavTitle.Location = new System.Drawing.Point(35, 6);
+			this.NavTitle.Name = "NavTitle";
+			this.NavTitle.Size = new System.Drawing.Size(187, 19);
+			this.NavTitle.TabIndex = 7;
+			this.NavTitle.Text = "School Management System ";
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -144,35 +183,6 @@ namespace SchoolManagementSystem.UserControls.Inventory
 			// 
 			this.gradeBindingSource.DataSource = typeof(SchoolManagementSystem.Grade);
 			// 
-			// label7
-			// 
-			this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-			this.label7.ForeColor = System.Drawing.Color.Black;
-			this.label7.Location = new System.Drawing.Point(363, 44);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(58, 20);
-			this.label7.TabIndex = 32;
-			this.label7.Text = "Grades";
-			// 
-			// label5
-			// 
-			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.label5.ForeColor = System.Drawing.Color.Black;
-			this.label5.Location = new System.Drawing.Point(304, 77);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(162, 15);
-			this.label5.TabIndex = 35;
-			this.label5.Text = "Your grades in all courses are:";
-			// 
-			// bunifuElipse1
-			// 
-			this.bunifuElipse1.ElipseRadius = 7;
-			this.bunifuElipse1.TargetControl = this.dg;
-			// 
 			// Back
 			// 
 			this.Back.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -188,65 +198,68 @@ namespace SchoolManagementSystem.UserControls.Inventory
 			this.toolTip1.SetToolTip(this.Back, "Back to Main Page");
 			this.Back.Click += new System.EventHandler(this.Back_Click);
 			// 
-			// Navbar
+			// label1
 			// 
-			this.Navbar.BackColor = System.Drawing.SystemColors.AppWorkspace;
-			this.Navbar.Controls.Add(this.Back);
-			this.Navbar.Controls.Add(this.NavTitle);
-			this.Navbar.Dock = System.Windows.Forms.DockStyle.Top;
-			this.Navbar.Location = new System.Drawing.Point(0, 0);
-			this.Navbar.Name = "Navbar";
-			this.Navbar.Size = new System.Drawing.Size(801, 30);
-			this.Navbar.TabIndex = 39;
+			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.label1.ForeColor = System.Drawing.Color.Black;
+			this.label1.Location = new System.Drawing.Point(211, 91);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(48, 15);
+			this.label1.TabIndex = 72;
+			this.label1.Text = "Student";
 			// 
-			// NavTitle
+			// Students
 			// 
-			this.NavTitle.AutoSize = true;
-			this.NavTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.NavTitle.ForeColor = System.Drawing.Color.Black;
-			this.NavTitle.Location = new System.Drawing.Point(35, 6);
-			this.NavTitle.Name = "NavTitle";
-			this.NavTitle.Size = new System.Drawing.Size(187, 19);
-			this.NavTitle.TabIndex = 7;
-			this.NavTitle.Text = "School Management System ";
+			this.Students.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.Students.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.Students.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.Students.FormattingEnabled = true;
+			this.Students.Location = new System.Drawing.Point(265, 86);
+			this.Students.Name = "Students";
+			this.Students.Size = new System.Drawing.Size(296, 25);
+			this.Students.Sorted = true;
+			this.Students.TabIndex = 71;
+			this.Students.SelectedIndexChanged += new System.EventHandler(this.Students_SelectedIndexChanged);
 			// 
-			// UC_ViewGrades
+			// UC_ViewGradesToParent
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.White;
-			this.Controls.Add(this.Navbar);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label7);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.Students);
 			this.Controls.Add(this.dg);
-			this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			this.ForeColor = System.Drawing.Color.Black;
-			this.Name = "UC_ViewGrades";
+			this.Controls.Add(this.label7);
+			this.Controls.Add(this.Navbar);
+			this.Name = "UC_ViewGradesToParent";
 			this.Size = new System.Drawing.Size(801, 498);
-			this.Load += new System.EventHandler(this.UC_InventoryIn_Load);
+			this.Load += new System.EventHandler(this.UC_ViewGradesToParent_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dg)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.gradeBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.Back)).EndInit();
 			this.Navbar.ResumeLayout(false);
 			this.Navbar.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.gradeBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.Back)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
 		#endregion
+
 		private Bunifu.Framework.UI.BunifuCustomDataGrid dg;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label5;
-		private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-		private System.Windows.Forms.ToolTip toolTip1;
-		private System.Windows.Forms.Panel Navbar;
-		private System.Windows.Forms.PictureBox Back;
-		public System.Windows.Forms.Label NavTitle;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn classDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn studentDataGridViewTextBoxColumn;
 		private System.Windows.Forms.BindingSource gradeBindingSource;
+		private System.Windows.Forms.Label label7;
+		private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+		private System.Windows.Forms.ToolTip toolTip1;
+		private System.Windows.Forms.PictureBox Back;
+		private System.Windows.Forms.Panel Navbar;
+		public System.Windows.Forms.Label NavTitle;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ComboBox Students;
 	}
 }

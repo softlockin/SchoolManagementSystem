@@ -1,30 +1,37 @@
 ﻿using SchoolManagementSystem.Forms;
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-using System.Reflection;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SchoolManagementSystem.UserControls.Inventory
+namespace SchoolManagementSystem.UserControls.ParentControls
 {
-	public partial class UC_ViewGrades : UserControl
+	public partial class UC_ViewGradesToParent : UserControl
 	{
-		public UC_ViewGrades()
+		public UC_ViewGradesToParent()
 		{
 			InitializeComponent();
 		}
 
-		private void UC_InventoryIn_Load(object sender, EventArgs e)
+		private void UC_ViewGradesToParent_Load(object sender, EventArgs e)
 		{
-			NavTitle.Text = "School Management System → Students → Grades";
+			NavTitle.Text = "School Management System → Parents → View Grades";
 
-			var source = Engine.GetGradesByStudent(Engine.CurrentUser.Id);
-			gradeBindingSource.DataSource = source;
+			Students.Items.AddRange(((Models.Parent)Engine.CurrentUser).Students.ToArray());
 		}
 
-		private void Back_Click(object sender, EventArgs e)
+		private void Students_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			((StudentDashboard)ParentForm).ActivateInitials();
+			Student student = (Student)Students.SelectedItem;
+
+			var source = Engine.GetGradesByStudent(student.Id);
+			gradeBindingSource.DataSource = source;
 		}
 
 		private void dg_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -37,6 +44,11 @@ namespace SchoolManagementSystem.UserControls.Inventory
 				e.CellStyle.BackColor = Color.Green;
 
 			dg.ClearSelection();
+		}
+
+		private void Back_Click(object sender, EventArgs e)
+		{
+			((ParentDashboard)ParentForm).ActivateInitials();
 		}
 	}
 }

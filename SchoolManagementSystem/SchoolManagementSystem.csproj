@@ -85,6 +85,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine.cs" />
+    <Compile Include="Forms\ParentDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParentDashboard.Designer.cs">
+      <DependentUpon>ParentDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StudentDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,7 @@
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Fee.cs" />
     <Compile Include="Models\Grade.cs" />
+    <Compile Include="Models\Parent.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\User.cs" />
@@ -132,11 +139,29 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UserControls\AdminControls\UC_AddParent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdminControls\UC_AddParent.Designer.cs">
+      <DependentUpon>UC_AddParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdminControls\UC_AssignParentToStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdminControls\UC_AssignParentToStudent.Designer.cs">
+      <DependentUpon>UC_AssignParentToStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AdminControls\UC_ManageFees.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminControls\UC_ManageFees.Designer.cs">
       <DependentUpon>UC_ManageFees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdminControls\UC_ManageParents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdminControls\UC_ManageParents.Designer.cs">
+      <DependentUpon>UC_ManageParents.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminControls\UC_ManageStudents.cs">
       <SubType>UserControl</SubType>
@@ -155,6 +180,18 @@
     </Compile>
     <Compile Include="UserControls\AdminControls\UC_AssignStudent.Designer.cs">
       <DependentUpon>UC_AssignStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ParentControls\UC_ViewAttendanceToParent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ParentControls\UC_ViewAttendanceToParent.Designer.cs">
+      <DependentUpon>UC_ViewAttendanceToParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ParentControls\UC_ViewGradesToParent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ParentControls\UC_ViewGradesToParent.Designer.cs">
+      <DependentUpon>UC_ViewGradesToParent.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\StudentControls\UC_ViewGrades.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +241,9 @@
     <Compile Include="UserControls\AdminControls\UC_ManageTeachers.Designer.cs">
       <DependentUpon>UC_ManageTeachers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\ParentDashboard.resx">
+      <DependentUpon>ParentDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentDashboard.resx">
       <DependentUpon>StudentDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,8 +264,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdminControls\UC_AddParent.resx">
+      <DependentUpon>UC_AddParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdminControls\UC_AssignParentToStudent.resx">
+      <DependentUpon>UC_AssignParentToStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminControls\UC_ManageFees.resx">
       <DependentUpon>UC_ManageFees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdminControls\UC_ManageParents.resx">
+      <DependentUpon>UC_ManageParents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminControls\UC_ManageStudents.resx">
       <DependentUpon>UC_ManageStudents.cs</DependentUpon>
@@ -235,6 +284,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminControls\UC_AssignStudent.resx">
       <DependentUpon>UC_AssignStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ParentControls\UC_ViewAttendanceToParent.resx">
+      <DependentUpon>UC_ViewAttendanceToParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ParentControls\UC_ViewGradesToParent.resx">
+      <DependentUpon>UC_ViewGradesToParent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentControls\UC_ViewGrades.resx">
       <DependentUpon>UC_ViewGrades.cs</DependentUpon>

@@ -54,6 +54,9 @@ namespace SchoolManagementSystem.Forms
 			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			this.label = new System.Windows.Forms.Label();
 			this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+			this.Parents = new System.Windows.Forms.Panel();
+			this.label4 = new System.Windows.Forms.Label();
+			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.TitleBar.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Logout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
@@ -66,6 +69,8 @@ namespace SchoolManagementSystem.Forms
 			this.Canva.SuspendLayout();
 			this.InventoryManager.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+			this.Parents.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// TitleBar
@@ -178,7 +183,7 @@ namespace SchoolManagementSystem.Forms
 			this.ShipmentManager.Controls.Add(this.label2);
 			this.ShipmentManager.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.ShipmentManager.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-			this.ShipmentManager.Location = new System.Drawing.Point(246, 211);
+			this.ShipmentManager.Location = new System.Drawing.Point(153, 215);
 			this.ShipmentManager.Name = "ShipmentManager";
 			this.ShipmentManager.Size = new System.Drawing.Size(148, 120);
 			this.ShipmentManager.TabIndex = 4;
@@ -223,7 +228,7 @@ namespace SchoolManagementSystem.Forms
 			this.CRM.Controls.Add(this.label3);
 			this.CRM.Controls.Add(this.pictureBox2);
 			this.CRM.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.CRM.Location = new System.Drawing.Point(418, 211);
+			this.CRM.Location = new System.Drawing.Point(325, 215);
 			this.CRM.Name = "CRM";
 			this.CRM.Size = new System.Drawing.Size(148, 120);
 			this.CRM.TabIndex = 5;
@@ -259,6 +264,7 @@ namespace SchoolManagementSystem.Forms
 			// Canva
 			// 
 			this.Canva.BackColor = System.Drawing.Color.White;
+			this.Canva.Controls.Add(this.Parents);
 			this.Canva.Controls.Add(this.InventoryManager);
 			this.Canva.Controls.Add(this.label);
 			this.Canva.Controls.Add(this.CRM);
@@ -276,7 +282,7 @@ namespace SchoolManagementSystem.Forms
 			this.InventoryManager.Controls.Add(this.label1);
 			this.InventoryManager.Controls.Add(this.pictureBox4);
 			this.InventoryManager.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.InventoryManager.Location = new System.Drawing.Point(586, 211);
+			this.InventoryManager.Location = new System.Drawing.Point(493, 215);
 			this.InventoryManager.Name = "InventoryManager";
 			this.InventoryManager.Size = new System.Drawing.Size(148, 120);
 			this.InventoryManager.TabIndex = 7;
@@ -326,6 +332,46 @@ namespace SchoolManagementSystem.Forms
 			this.bunifuElipse2.ElipseRadius = 9;
 			this.bunifuElipse2.TargetControl = this.InventoryManager;
 			// 
+			// Parents
+			// 
+			this.Parents.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.Parents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
+			this.Parents.Controls.Add(this.label4);
+			this.Parents.Controls.Add(this.pictureBox3);
+			this.Parents.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.Parents.Location = new System.Drawing.Point(658, 215);
+			this.Parents.Name = "Parents";
+			this.Parents.Size = new System.Drawing.Size(148, 120);
+			this.Parents.TabIndex = 8;
+			this.Parents.Click += new System.EventHandler(this.Parents_Click);
+			// 
+			// label4
+			// 
+			this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label4.AutoSize = true;
+			this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label4.ForeColor = System.Drawing.Color.White;
+			this.label4.Location = new System.Drawing.Point(45, 89);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(55, 19);
+			this.label4.TabIndex = 6;
+			this.label4.Text = "Parents";
+			this.label4.Click += new System.EventHandler(this.Parents_Click);
+			// 
+			// pictureBox3
+			// 
+			this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
+			this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pictureBox3.Image = global::SchoolManagementSystem.Properties.Resources.icons8_people_64px;
+			this.pictureBox3.Location = new System.Drawing.Point(35, 20);
+			this.pictureBox3.Name = "pictureBox3";
+			this.pictureBox3.Size = new System.Drawing.Size(74, 64);
+			this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.pictureBox3.TabIndex = 5;
+			this.pictureBox3.TabStop = false;
+			this.pictureBox3.Click += new System.EventHandler(this.Parents_Click);
+			// 
 			// Dashboard
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -356,6 +402,9 @@ namespace SchoolManagementSystem.Forms
 			this.InventoryManager.ResumeLayout(false);
 			this.InventoryManager.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+			this.Parents.ResumeLayout(false);
+			this.Parents.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -385,5 +434,8 @@ namespace SchoolManagementSystem.Forms
 		private System.Windows.Forms.PictureBox pictureBox4;
 		private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
 		private System.Windows.Forms.PictureBox Logout;
+		private System.Windows.Forms.Panel Parents;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.PictureBox pictureBox3;
 	}
 }

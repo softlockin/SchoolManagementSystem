@@ -56,7 +56,15 @@ namespace SchoolManagementSystem.Forms.Login
 						dashboard.Show();
 						Notification.Show($"Welcome Student!", Notification.Type.Info);
 					}
+					else if (user is Models.Parent)
+					{
+						ParentDashboard dashboard = new ParentDashboard();
+						this.Hide();
+						dashboard.Show();
+						Notification.Show($"Welcome Parent!", Notification.Type.Info);
+					}
 				}
+				else Notification.Show("Invalid credentials", Notification.Type.Error);
 			}
 		}
 

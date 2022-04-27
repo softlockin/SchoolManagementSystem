@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolManagementSystem.Models;
+
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,6 +12,7 @@ namespace SchoolManagementSystem
 		public static List<User> Users { get; set; }
 		public static List<Teacher> Teachers => Users.OfType<Teacher>().ToList();
 		public static List<Student> Students => Users.OfType<Student>().ToList();
+		public static List<Parent> Parents => Users.OfType<Parent>().ToList();
 		public static List<Class> Classes { get; set; }
 		public static List<Attendance> AttendanceRegister { get; set; } = new List<Attendance>();
 		public static List<Grade> Grades { get; set; } = new List<Grade>();
@@ -20,6 +23,10 @@ namespace SchoolManagementSystem
 		public static void Setup()
 		{
 			Engine.Users = GetUsers();
+			foreach (Parent parent in Users.OfType<Parent>())
+			{
+				parent.Students = GetStudentsByParent(parent.Id);
+			}
 			Engine.Classes = GetClasses();
 			//Admin admin = new Admin("Admin", "admin", "123");
 			//Engine.Users.Add(admin);
@@ -47,7 +54,7 @@ namespace SchoolManagementSystem
 				cnn.Open();
 
 				string role;
-				if (user is Student) role = "student"; else role = "teacher";
+				if (user is Student) role = "student"; else if (user is Parent) role = "parent"; else role = "teacher";
 
 				SqlCommand cmd = new SqlCommand("[dbo].[AddUser]", cnn)
 				{
@@ -70,7 +77,7 @@ namespace SchoolManagementSystem
 			{
 				cnn.Open();
 
-				SqlCommand cmd = new SqlCommand("DELETE FROM dbo.[Users] WHERE [Id] = @id;", cnn);
+				SqlCommand cmd = new SqlCommand("DELETE FROM dbo.[Users] WHERE [Id] = @id; UPDATE dbo.[Users] SET [ParentId] = NULL where [ParentId] = @id", cnn);
 				cmd.Parameters.AddWithValue("@id", user.Id);
 				cmd.ExecuteNonQuery();
 			}
@@ -145,6 +152,54 @@ namespace SchoolManagementSystem
 			Engine.Setup();
 		}
 
+		public static void RemoveStudent(int classId, int studentId)
+		{
+			using (SqlConnection cnn = new SqlConnection(connectionString))
+			{
+				cnn.Open();
+
+				SqlCommand cmd = new SqlCommand("DELETE FROM [ClassStudents] WHERE [ClassId] = @class AND [StudentId] = @student", cnn);
+				cmd.Parameters.AddWithValue("@student", studentId);
+				cmd.Parameters.AddWithValue("@class", classId);
+
+				cmd.ExecuteNonQuery();
+			}
+			Engine.Setup();
+		}
+
+		public static void AssignStudentToParent(int parentId, int studentId)
+		{
+			using (SqlConnection cnn = new SqlConnection(connectionString))
+			{
+				cnn.Open();
+
+				SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Users] SET [ParentId] = @parent WHERE [Id] = @student;", cnn)
+				{
+					CommandType = System.Data.CommandType.Text
+				};
+				cmd.Parameters.AddWithValue("@student", studentId);
+				cmd.Parameters.AddWithValue("@parent", parentId);
+
+				cmd.ExecuteNonQuery();
+			}
+			Engine.Setup();
+		}
+
+		public static void RemoveStudentFromParent(int parentId, int studentId)
+		{
+			using (SqlConnection cnn = new SqlConnection(connectionString))
+			{
+				cnn.Open();
+
+				SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Users] SET [ParentId] = NULL WHERE [ParentId] = @parent AND [Id] = @student", cnn);
+				cmd.Parameters.AddWithValue("@student", studentId);
+				cmd.Parameters.AddWithValue("@parent", parentId);
+
+				cmd.ExecuteNonQuery();
+			}
+			Engine.Setup();
+		}
+
 		public static void AssignGrade(int studentId, int classId, string grade)
 		{
 			using (SqlConnection cnn = new SqlConnection(connectionString))
@@ -207,7 +262,7 @@ namespace SchoolManagementSystem
 			{
 				cnn.Open();
 
-				SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[GetUsers]()", cnn)
+				SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[GetUsers]() ORDER BY [Role] DESC", cnn)
 				{
 					CommandType = System.Data.CommandType.Text
 				};
@@ -220,19 +275,30 @@ namespace SchoolManagementSystem
 					string UserName = (string)reader["UserName"];
 					string Password = (string)reader["Password"];
 					string role = (string)reader["Role"];
+					int? parentId = null;
+					try { parentId = (int?)reader["ParentId"]; } catch(Exception) { }
+
 					if (role == "teacher")
 					{
 						users.Add(new Teacher(Id, Name, UserName, Password));
 					}
+					else if (role == "parent")
+					{
+						users.Add(new Parent(Id, Name, UserName, Password)
+						{
+							//Students = GetStudentsByParent(Id)
+						});
+					}
 					else if (role == "student")
 					{
 						decimal fee = (decimal)reader["Fee"];
-						users.Add(new Student(Id, Name, UserName, Password, fee));
+						users.Add(new Student(Id, Name, UserName, Password, fee, parentId));
 					}
 					else users.Add(new Admin(Id, Name, UserName, Password));
 
 				}
 			}
+			
 			return users;
 		}
 
@@ -296,14 +362,24 @@ namespace SchoolManagementSystem
 					string UserName = (string)reader["UserName"];
 					string Password = (string)reader["Password"];
 					string role = (string)reader["Role"];
+					int parentId = (int)reader["ParentId"];
+
 					if (role == "teacher")
 					{
 						user = new Teacher(Id, Name, UserName, Password);
 					}
+					else if(role == "parent")
+					{
+						user = new Parent(Id, Name, UserName, Password)
+						{
+							Students = GetStudentsByParent(Id)
+						};
+					}
 					else if (role == "student")
 					{
 						decimal fee = (decimal)reader["Fee"];
-						user = new Student(Id, Name, UserName, Password, fee);
+
+						user = new Student(Id, Name, UserName, Password, fee, parentId);
 					}
 					else user = new Admin(Id, Name, UserName, Password);
 				}
@@ -320,6 +396,30 @@ namespace SchoolManagementSystem
 				cnn.Open();
 
 				SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[GetStudentsByClassId](@id)", cnn)
+				{
+					CommandType = System.Data.CommandType.Text
+				};
+				cmd.Parameters.AddWithValue("@id", id);
+
+				SqlDataReader reader = cmd.ExecuteReader();
+				while (reader.Read())
+				{
+					int Id = (int)reader["Id"];
+
+					users.Add(Engine.Students.Where(u => u.Id == Id).First());
+				}
+			}
+			return users;
+		}
+
+		public static List<Student> GetStudentsByParent(int id)
+		{
+			List<Student> users = new List<Student>();
+			using (SqlConnection cnn = new SqlConnection(connectionString))
+			{
+				cnn.Open();
+
+				SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[GetStudentsByParentId](@id)", cnn)
 				{
 					CommandType = System.Data.CommandType.Text
 				};

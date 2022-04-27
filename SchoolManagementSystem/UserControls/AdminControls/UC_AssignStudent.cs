@@ -28,7 +28,7 @@ namespace SchoolManagementSystem.UserControls.CRM
 		private void UC_AssignStudent_Load(object sender, EventArgs e)
 		{
 			Students.Items.AddRange(Engine.Students.ToArray());
-			Classes.Items.AddRange(Engine.Classes.ToArray());
+			Classes.Items.AddRange(Engine.Parents.ToArray());
 		}
 
 		private void DeleteButton_Click(object sender, EventArgs e)
@@ -40,6 +40,18 @@ namespace SchoolManagementSystem.UserControls.CRM
 				Students.Items.AddRange(Engine.Students.ToArray());
 				Notification.Show("Deleted", Notification.Type.Info);
 				Students.SelectedItem = -1;
+			}
+		}
+
+		private void RemoveStudentFromClass_Click(object sender, EventArgs e)
+		{
+			if (Students.SelectedIndex != -1 && Classes.SelectedIndex != -1)
+			{
+				Student student = Students.SelectedItem as Student;
+				Class @class = Classes.SelectedItem as Class;
+
+				Engine.RemoveStudent(@class.Id, student.Id);
+				Notification.Show("Student removed", Notification.Type.Success);
 			}
 		}
 	}
